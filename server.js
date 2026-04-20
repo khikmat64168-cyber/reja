@@ -14,14 +14,22 @@ app.set('views', 'views'); //views papkasidagi fayllarni ochish uchun
 app.set('view engine', 'ejs'); //ejs formatidagi fayllarni ochish uchun views folderdan o'qiydi
 
 //4-BOSQICH.ROOTING codelari
+
+app.post('/create-item', (req, res) => {
+  console.log(req.body);
+  res.json({ test: 'success' });
+});
 //  rooterlarga mo'ljallangan
 
-app.get('/hello', function (req, res) {
-  res.end('<h1 style="background-color: red;">Hello world ny MATTTHEW </h1>');
-});
+// app.get('/hello', function (req, res) {
+//   res.end('<h1 style="background-color: red;">Hello world ny MATTTHEW </h1>');
+// });
 
-app.get('/gift', function (req, res) {
-  res.end('<h1>Siz sovgalar bolimidasiz</h1>');
+// app.get('/gift', function (req, res) {
+//   res.end('<h1>Siz sovgalar bolimidasiz</h1>');
+// });
+app.get('/', function (req, res) {
+  res.render('harid', { reja: 'Bugungi rejam' });
 });
 
 const server = http.createServer(app);

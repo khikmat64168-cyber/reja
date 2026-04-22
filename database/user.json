@@ -1,0 +1,13 @@
+{
+  "name": "Matthew",
+  "age": 30,
+  "email": "matthew@example.com",
+  "residence": "New York",
+  "skills": ["JavaScript", "Node.js", "Express", "EJS"],
+  "hobbies": ["coding", "traveling", "photography"],
+  "languages": {
+    "english": "fluent",
+    "spanish": "intermediate",
+    "french": "basic"
+  }
+}

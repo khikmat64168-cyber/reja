@@ -1,13 +1,26 @@
 {
   "name": "Matthew",
-  "age": 30,
-  "email": "matthew@example.com",
-  "residence": "New York",
-  "skills": ["JavaScript", "Node.js", "Express", "EJS"],
-  "hobbies": ["coding", "traveling", "photography"],
-  "languages": {
-    "english": "fluent",
-    "spanish": "intermediate",
-    "french": "basic"
-  }
+  "age": 25,
+  "profession": "Software Engineer",
+  "residence": "S.Korea",
+  "freelance": "Available",
+  "address": "S.Korea, Busan",
+  "languages": [
+    { "name": "Uzbek", "percent": 100 },
+    { "name": "Korean", "percent": 80 },
+    { "name": "English", "percent": 60 }
+  ],
+  "skills": [
+    { "name": "Html", "percent": 90 },
+    { "name": "Css", "percent": 85 },
+    { "name": "Js", "percent": 80 },
+    { "name": "NodeJS", "percent": 75 },
+    { "name": "Python", "percent": 85 }
+  ],
+  "extraSkills": [
+    "Bootstrap, Materialize",
+    "Styling, Sass",
+    "Django, Flask",
+    "GIT Knowledge"
+  ]
 }

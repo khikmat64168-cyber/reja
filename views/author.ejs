@@ -1,1 +1,210 @@
-<div>HELLO WORLD YOU ARE IN AUTHORS</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="main_frame">
+
+        <!-- LEFT FRAME -->
+        <div class="left_frame">
+
+          <!-- Profile -->
+          <div class="left_1">
+            <div class="profile-img-wrap">
+              <img src="/images/profile.png" alt="profile" />
+            </div>
+            <div class="left_1-2"><%= user.name %></div>
+            <div class="left_1-3"><%= user.profession %></div>
+            <div class="left-icons">
+              <a href="#" class="link_href">
+                <span class="icon">
+                  <img src="https://cdn.simpleicons.org/facebook/2B2B2B" alt="facebook" />
+                </span>
+              </a>
+              <a href="#" class="link_href">
+                <span class="icon">
+                  <img src="https://cdn.simpleicons.org/instagram/2B2B2B" alt="instagram" />
+                </span>
+              </a>
+              <a href="#" class="link_href">
+                <span class="icon">
+                  <img src="https://cdn.simpleicons.org/x/2B2B2B" alt="twitter" />
+                </span>
+              </a>
+              <a href="#" class="link_href">
+                <span class="icon">
+                  <img src="https://cdn.simpleicons.org/linkedin/2B2B2B" alt="linkedin" />
+                </span>
+              </a>
+              <a href="#" class="link_href">
+                <span class="icon">
+                  <img src="https://cdn.simpleicons.org/youtube/2B2B2B" alt="youtube" />
+                </span>
+              </a>
+              <a href="#" class="link_href">
+                <span class="icon">
+                  <img src="https://cdn.simpleicons.org/dribbble/2B2B2B" alt="dribbble" />
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <div class="marginer"></div>
+
+          <!-- Personal Info -->
+          <div class="left_2">
+            <div class="info-row">
+              <span class="info-label">Age:</span>
+              <span class="info-value"><%= user.age %></span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Residence:</span>
+              <span class="info-value"><%= user.residence %></span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Freelance:</span>
+              <span class="info-value green"><%= user.freelance %></span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Address:</span>
+              <span class="info-value"><%= user.address %></span>
+            </div>
+          </div>
+
+          <div class="marginer"></div>
+
+          <!-- Languages -->
+          <div class="left_3">
+            <div class="section-title">Languages</div>
+            <% user.languages.forEach(function(lang) { %>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span><%= lang.name %></span>
+                <span><%= lang.percent %>%</span>
+              </div>
+              <div class="progress-bg">
+                <div class="progress-fill" style="width:<%= lang.percent %>%"></div>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+
+          <div class="marginer"></div>
+
+          <!-- Skills -->
+          <div class="left_4">
+            <div class="section-title">Skills</div>
+            <% user.skills.forEach(function(skill) { %>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span><%= skill.name %></span>
+                <span><%= skill.percent %>%</span>
+              </div>
+              <div class="progress-bg">
+                <div class="progress-fill" style="width:<%= skill.percent %>%"></div>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+
+          <div class="marginer"></div>
+
+          <!-- Extra Skills -->
+          <div class="left_5">
+            <div class="section-title">Extra Skills</div>
+            <% user.extraSkills.forEach(function(s) { %>
+            <div class="extra-item">
+              <span class="extra-bullet"></span>
+              <span><%= s %></span>
+            </div>
+            <% }) %>
+          </div>
+
+        </div>
+        <!-- /LEFT FRAME -->
+
+        <!-- MID FRAME -->
+        <div class="mid_frame">
+
+          <!-- Hero -->
+          <div class="hero">
+            <div class="hero-left">
+              <h1 class="hero-title">Software Engineer in<br>IT Company</h1>
+              <p class="hero-desc">Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit.<br>Et, Volutpat Feugiat Placerat Lobortis. Natoque Rutrum<br>Semper Sed Suspendisse Nunc Lectus</p>
+              <a href="#" class="hire-btn">HIRE ME &nbsp;→</a>
+            </div>
+            <div class="hero-right">
+              <img src="/images/profile.png" alt="hero" class="hero-img" />
+            </div>
+            <!-- Decorative shapes -->
+            <span class="deco deco-circle-y" style="top:28px;left:44px"></span>
+            <span class="deco deco-circle-g" style="top:185px;left:30px"></span>
+            <span class="deco deco-circle-k" style="top:200px;right:220px"></span>
+            <span class="deco deco-diamond"  style="top:170px;left:370px"></span>
+            <span class="deco deco-triangle" style="bottom:30px;right:175px"></span>
+          </div>
+
+          <!-- Services -->
+          <div class="services">
+            <h2 class="services-title">My Services</h2>
+            <p class="services-desc">Amet Minim Mollit Non Deserunt Ullamco Est Sit Aliqua Dolor Do<br>Amet Sint. Velit Officia Consequat Duis Enim Velit Mollit. Lorem Ipsum</p>
+            <div class="services-grid">
+              <div class="service-card">
+                <div class="service-icon"><i class="fa fa-code"></i></div>
+                <div class="service-name">Web Development</div>
+                <div class="service-desc-text">BLog, E-Commerce</div>
+              </div>
+              <div class="service-card">
+                <div class="service-icon"><i class="fa fa-desktop"></i></div>
+                <div class="service-name">UI/UX Design</div>
+                <div class="service-desc-text">Mobile App, Website Design</div>
+              </div>
+              <div class="service-card">
+                <div class="service-icon"><i class="fa fa-microphone"></i></div>
+                <div class="service-name">Sound Desigin</div>
+                <div class="service-desc-text">Voice Over, Beat Making</div>
+              </div>
+              <div class="service-card">
+                <div class="service-icon"><i class="fa fa-mobile fa-lg"></i></div>
+                <div class="service-name">Mobile App Design</div>
+                <div class="service-desc-text">Character Design, Props & Objects</div>
+              </div>
+              <div class="service-card">
+                <div class="service-icon"><i class="fa fa-camera"></i></div>
+                <div class="service-name">Photography</div>
+                <div class="service-desc-text">Portrait, Product PhotoGraphy</div>
+              </div>
+              <div class="service-card">
+                <div class="service-icon"></div>
+                <div class="service-name">Advertising</div>
+                <div class="service-desc-text">Orem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry Typesetting Industry.</div>
+                <a href="#" class="order-btn">Order Now &nbsp;›</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /MID FRAME -->
+
+        <!-- RIGHT FRAME -->
+        <div class="right_frame">
+          <a href="#" class="nav-icon active"><i class="fa fa-home"></i></a>
+          <a href="#" class="nav-icon"><i class="fa fa-file-text"></i></a>
+          <a href="#" class="nav-icon"><i class="fa fa-graduation-cap"></i></a>
+          <a href="#" class="nav-icon"><i class="fa fa-user"></i></a>
+          <a href="#" class="nav-icon"><i class="fa fa-briefcase"></i></a>
+          <a href="#" class="nav-icon"><i class="fa fa-pencil"></i></a>
+          <a href="#" class="nav-icon"><i class="fa fa-comment"></i></a>
+        </div>
+        <!-- /RIGHT FRAME -->
+
+      </div>
+    </div>
+  </body>
+</html>

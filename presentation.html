@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio Loyiha — Tushuntirish</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: #1a1a2e; color: #2B2B2B; }
+
+    /* ── SLIDE ── */
+    .slide {
+      width: 1000px;
+      min-height: 600px;
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+      page-break-after: always;
+    }
+
+    /* ── SLIDE HEADER ── */
+    .slide-header {
+      background: #FFB400;
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .slide-num {
+      background: rgba(0,0,0,0.15);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    .slide-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    /* ── SLIDE BODY ── */
+    .slide-body {
+      padding: 40px 48px;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      background: linear-gradient(135deg, #FFB400 0%, #ff8c00 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 600px;
+      padding: 60px;
+    }
+    .cover h1 { font-size: 42px; font-weight: 900; color: #fff; margin-bottom: 16px; }
+    .cover p  { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 8px; }
+    .cover .tag {
+      margin-top: 32px;
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 8px 24px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* ── CODE BLOCK ── */
+    .code {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      border-radius: 10px;
+      padding: 20px 24px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.8;
+      margin: 16px 0;
+      overflow-x: auto;
+    }
+    .kw  { color: #cba6f7; }  /* keyword */
+    .fn  { color: #89b4fa; }  /* function */
+    .str { color: #a6e3a1; }  /* string */
+    .cm  { color: #6c7086; }  /* comment */
+    .hl  { color: #f38ba8; }  /* highlight */
+    .yr  { color: #fab387; }  /* yellow-red */
+
+    /* ── DIAGRAM ── */
+    .diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin: 24px 0;
+      flex-wrap: wrap;
+    }
+    .box {
+      background: #FFB400;
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 14px 22px;
+      border-radius: 10px;
+      text-align: center;
+      min-width: 130px;
+    }
+    .box.gray  { background: #6c7086; }
+    .box.dark  { background: #2B2B2B; }
+    .box.green { background: #27AE60; }
+    .box.blue  { background: #3498DB; }
+    .box sub { display: block; font-weight: 400; font-size: 11px; opacity: 0.85; margin-top: 3px; }
+    .arrow {
+      font-size: 28px;
+      color: #FFB400;
+      padding: 0 10px;
+      font-weight: 900;
+    }
+
+    /* ── 3-COLUMN LAYOUT ── */
+    .cols3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 16px 0; }
+    .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 16px 0; }
+
+    .card {
+      background: #f8f8f8;
+      border-radius: 10px;
+      padding: 18px;
+      border-left: 4px solid #FFB400;
+    }
+    .card.blue  { border-left-color: #3498DB; }
+    .card.green { border-left-color: #27AE60; }
+    .card.red   { border-left-color: #E74C3C; }
+    .card h4 { font-size: 14px; font-weight: 700; color: #2B2B2B; margin-bottom: 8px; }
+    .card p  { font-size: 12.5px; color: #555; line-height: 1.7; }
+    .card code {
+      background: #e8e8e8;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-family: 'Courier New', monospace;
+      color: #E74C3C;
+    }
+
+    /* ── LAYOUT DIAGRAM ── */
+    .layout-wrap {
+      display: flex;
+      border: 2px solid #FFB400;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 280px;
+      margin: 20px 0;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .l-left  { width: 160px; background: #fff7e0; display:flex; flex-direction:column; align-items:center; justify-content:center; border-right: 2px solid #FFB400; color: #FFB400; gap:8px; flex-shrink:0; }
+    .l-mid   { flex:1; background: #f0f4ff; display:flex; flex-direction:column; }
+    .l-right { width: 80px; background: #fff7e0; display:flex; align-items:center; justify-content:center; border-left: 2px solid #FFB400; color: #FFB400; flex-shrink:0; }
+    .l-hero  { flex:1; border-bottom: 2px solid #3498DB; display:flex; align-items:center; justify-content:center; color: #3498DB; background:#f8fbff; }
+    .l-services { flex:1; display:flex; align-items:center; justify-content:center; color:#27AE60; background:#f5fff8; }
+    .l-label { font-size: 11px; color: #888; font-weight: 400; }
+
+    /* ── PROGRESS BAR DEMO ── */
+    .prog-demo { margin: 8px 0; }
+    .prog-demo .prog-row { display:flex; justify-content:space-between; font-size:12px; margin-bottom:4px; }
+    .prog-demo .prog-bg { background:#E8E8E8; border-radius:2px; height:6px; width:100%; }
+    .prog-demo .prog-fill { background:#FFB400; height:6px; border-radius:2px; }
+
+    /* ── COLOR PALETTE ── */
+    .palette { display:flex; gap:12px; margin:16px 0; flex-wrap:wrap; }
+    .swatch { border-radius:8px; padding:12px 16px; color:#fff; font-size:12px; font-weight:700; min-width:120px; }
+
+    /* ── NOTE ── */
+    .note {
+      background: #fffbea;
+      border-left: 4px solid #FFB400;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      font-size: 13px;
+      color: #555;
+      margin: 12px 0;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: #fff; }
+      .slide { margin: 0; box-shadow: none; border-radius: 0; page-break-after: always; }
+      .no-print { display: none; }
+    }
+
+    /* ── PRINT BUTTON ── */
+    .print-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #FFB400;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255,180,0,0.5);
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">🖨 PDF sifatida saqlash</button>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 1 — MUQOVA
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="cover">
+    <h1>Portfolio Loyiha</h1>
+    <p>author.ejs · main.css · server.js</p>
+    <p>Node.js · Express · EJS · CSS Flexbox</p>
+    <div class="tag">Loyiha tuzilishi va kodlar tushuntirishi</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 2 — LOYIHA TUZILISHI
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="slide-num">02</span>
+    <span class="slide-title">Loyiha tuzilishi (Fayl strukturasi)</span>
+  </div>
+  <div class="slide-body">
+    <div class="code">
+<span class="cm">Reja/                   ← Asosiy papka</span>
+├── <span class="yr">server.js</span>             <span class="cm">← Serverning bosh fayli</span>
+├── <span class="yr">database/</span>
+│   └── <span class="str">user.json</span>         <span class="cm">← Foydalanuvchi ma'lumotlari</span>
+├── <span class="yr">views/</span>
+│   └── <span class="str">author.ejs</span>        <span class="cm">← HTML shablon (EJS)</span>
+├── <span class="yr">public/</span>
+│   ├── <span class="str">main.css</span>          <span class="cm">← Barcha stillar</span>
+│   └── <span class="str">images/</span>           <span class="cm">← Rasmlar va ikonkalar</span>
+└── <span class="yr">package.json</span>          <span class="cm">← Loyiha konfiguratsiyasi</span>
+    </div>
+    <div class="diagram">
+      <div class="box dark">user.json<sub>Ma'lumotlar</sub></div>
+      <div class="arrow">→</div>
+      <div class="box gray">server.js<sub>Backend</sub></div>
+      <div class="arrow">→</div>
+      <div class="box">author.ejs<sub>Shablon</sub></div>
+      <div class="arrow">+</div>
+      <div class="box blue">main.css<sub>Dizayn</sub></div>
+      <div class="arrow">→</div>
+      <div class="box green">Brauzer<sub>Natija</sub></div>
+    </div>
+    <div class="note">Ma'lumot oqimi: <strong>user.json</strong> → <strong>server.js</strong> o'qib oladi → <strong>author.ejs</strong> ga yuboradi → <strong>main.css</strong> bilan bezatiladi → brauzerda ko'rinadi.</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 3 — SERVER.JS
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="slide-num">03</span>
+    <span class="slide-title">server.js — Backend kodi</span>
+  </div>
+  <div class="slide-body">
+    <div class="code">
+<span class="kw">const</span> express = <span class="fn">require</span>(<span class="str">'express'</span>);
+<span class="kw">const</span> fs      = <span class="fn">require</span>(<span class="str">'fs'</span>);
+<span class="kw">const</span> app     = <span class="fn">express</span>();
+
+<span class="cm">// 1. Public papkadagi fayllarni (CSS, rasm) brauzerga ochish</span>
+app.<span class="fn">use</span>(express.<span class="fn">static</span>(<span class="str">'public'</span>));
+
+<span class="cm">// 2. EJS shablon dvigatelini ulash</span>
+app.<span class="fn">set</span>(<span class="str">'view engine'</span>, <span class="str">'ejs'</span>);
+app.<span class="fn">set</span>(<span class="str">'views'</span>, <span class="str">'views'</span>);
+
+<span class="cm">// 3. user.json faylini o'qish</span>
+<span class="kw">let</span> user;
+fs.<span class="fn">readFile</span>(<span class="str">'database/user.json'</span>, <span class="str">'utf-8'</span>, (err, data) => {
+  <span class="kw">if</span> (!err) user = JSON.<span class="fn">parse</span>(data);
+});
+
+<span class="cm">// 4. /author manziliga so'rov kelganda author.ejs ni render qilish</span>
+app.<span class="fn">get</span>(<span class="str">'/author'</span>, (req, res) => {
+  res.<span class="fn">render</span>(<span class="str">'author'</span>, { <span class="hl">user: user</span> });
+});
+
+app.<span class="fn">listen</span>(<span class="yr">3000</span>);
+    </div>
+    <div class="cols2">
+      <div class="card">
+        <h4>res.render() nima qiladi?</h4>
+        <p><code>author.ejs</code> faylini ochib, ichidagi <code>&lt;%= user.name %&gt;</code> kabi joylarga ma'lumot qo'yib, tayyor HTML ni brauzerga yuboradi.</p>
+      </div>
+      <div class="card blue">
+        <h4>fs.readFile() nima qiladi?</h4>
+        <p><code>user.json</code> faylini diskdan o'qib, JSON formatdan JavaScript obyektiga o'giradi. Natijani <code>user</code> o'zgaruvchisiga saqlaydi.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 4 — LAYOUT TUZILISHI
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="slide-num">04</span>
+    <span class="slide-title">author.ejs — Sahifa layout tuzilishi</span>
+  </div>
+  <div class="slide-body">
+    <div class="layout-wrap">
+      <div class="l-left">
+        <div>LEFT FRAME</div>
+        <div class="l-label">305px · oq</div>
+        <div style="font-size:11px;color:#888;text-align:center;padding:0 8px">Profil · Info · Skills · Extra</div>
+      </div>
+      <div class="l-mid">
+        <div class="l-hero">HERO SECTION<br><span class="l-label">Sarlavha · Matn · HIRE ME tugma</span></div>
+        <div class="l-services">MY SERVICES<br><span class="l-label">6 ta xizmat kartochkasi</span></div>
+      </div>
+      <div class="l-right">
+        <div style="text-align:center">RIGHT<br>FRAME<br><span class="l-label">Nav ikonkalar</span></div>
+      </div>
+    </div>
+    <div class="code">
+<span class="cm">&lt;!-- author.ejs umumiy tuzilishi --&gt;</span>
+&lt;<span class="kw">div</span> class=<span class="str">"frame"</span>&gt;             <span class="cm">&lt;!-- Tashqi kulrang fon --&gt;</span>
+  &lt;<span class="kw">div</span> class=<span class="str">"main_frame"</span>&gt;       <span class="cm">&lt;!-- 1200px kenglikdagi oq blok --&gt;</span>
+    &lt;<span class="kw">div</span> class=<span class="str">"left_frame"</span>&gt;...&lt;/<span class="kw">div</span>&gt;  <span class="cm">&lt;!-- 305px chap panel --&gt;</span>
+    &lt;<span class="kw">div</span> class=<span class="str">"mid_frame"</span>&gt;....&lt;/<span class="kw">div</span>&gt;  <span class="cm">&lt;!-- O'rta kontent --&gt;</span>
+    &lt;<span class="kw">div</span> class=<span class="str">"right_frame"</span>&gt;..&lt;/<span class="kw">div</span>&gt; <span class="cm">&lt;!-- 108px o'ng panel --&gt;</span>
+  &lt;/<span class="kw">div</span>&gt;
+&lt;/<span class="kw">div</span>&gt;
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 5 — LEFT FRAME
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="slide-num">05</span>
+    <span class="slide-title">left_frame — Chap panel (5 bo'lim)</span>
+  </div>
+  <div class="slide-body">
+    <div class="cols2">
+      <div>
+        <div class="code" style="font-size:12px">
+<span class="cm">&lt;!-- left_1: Profil --&gt;</span>
+&lt;<span class="kw">div</span> class=<span class="str">"left_1"</span>&gt;
+  &lt;img src=<span class="str">"/images/profile.png"</span> /&gt;
+  &lt;<span class="kw">div</span>&gt;<span class="hl">&lt;%= user.name %&gt;</span>&lt;/<span class="kw">div</span>&gt;
+  &lt;<span class="kw">div</span>&gt;<span class="hl">&lt;%= user.profession %&gt;</span>&lt;/<span class="kw">div</span>&gt;
+  <span class="cm">&lt;!-- 6 ta ijtimoiy ikonka --&gt;</span>
+&lt;/<span class="kw">div</span>&gt;
+
+<span class="cm">&lt;!-- left_2: Shaxsiy ma'lumotlar --&gt;</span>
+&lt;<span class="kw">div</span> class=<span class="str">"left_2"</span>&gt;
+  &lt;<span class="kw">span</span> class=<span class="str">"info-label"</span>&gt;Age:&lt;/<span class="kw">span</span>&gt;
+  &lt;<span class="kw">span</span>&gt;<span class="hl">&lt;%= user.age %&gt;</span>&lt;/<span class="kw">span</span>&gt;
+&lt;/<span class="kw">div</span>&gt;
+
+<span class="cm">&lt;!-- left_3 & left_4: EJS forEach --&gt;</span>
+<span class="hl">&lt;% user.languages.forEach(function(lang) { %&gt;</span>
+  &lt;<span class="kw">div</span> class=<span class="str">"progress-fill"</span>
+    style=<span class="str">"width: &lt;%= lang.percent %&gt;%"</span>&gt;
+  &lt;/<span class="kw">div</span>&gt;
+<span class="hl">&lt;% }) %&gt;</span>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:12px">
+          <h4>left_1 — Profil bloki</h4>
+          <p>Rasm, ism, kasb va ijtimoiy ikonkalar. <code>user.name</code> va <code>user.profession</code> JSON dan keladi.</p>
+        </div>
+        <div class="card blue" style="margin-bottom:12px">
+          <h4>left_2 — Shaxsiy ma'lumotlar</h4>
+          <p><code>Age</code>, <code>Residence</code>, <code>Freelance</code>, <code>Address</code> — sariq <code>.info-label</code> va qiymat.</p>
+        </div>
+        <div class="card green" style="margin-bottom:12px">
+          <h4>left_3 & left_4 — forEach tsikli</h4>
+          <p>EJS <code>forEach</code> bilan JSON dagi languages va skills massividan har biri uchun progress bar yaratadi.</p>
+        </div>
+        <div class="card red">
+          <h4>left_5 — Extra Skills</h4>
+          <p>Sariq kvadrat (bullet) bilan qo'shimcha ko'nikmalar ro'yxati.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 6 — EJS SINTAKSIS
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="slide-num">06</span>
+    <span class="slide-title">EJS — Shablon sintaksisi</span>
+  </div>
+  <div class="slide-body">
+    <div class="cols3">
+      <div class="card">
+        <h4>&lt;%= %&gt; — Qiymat chiqarish</h4>
+        <p>O'zgaruvchi qiymatini HTML ga chiqaradi.</p>
+        <div class="code" style="margin-top:10px;font-size:12px">
+&lt;%= <span class="hl">user.name</span> %&gt;
+<span class="cm">→ "Matthew"</span>
+        </div>
+      </div>
+      <div class="card blue">
+        <h4>&lt;% %&gt; — Kod yozish</h4>
+        <p>JavaScript kodi yozadi, lekin ekranga chiqarmaydi.</p>
+        <div class="code" style="margin-top:10px;font-size:12px">
+<span class="hl">&lt;% if (user.age &gt; 18) { %&gt;</span>
+  &lt;p&gt;Voyaga yetgan&lt;/p&gt;
+<span class="hl">&lt;% } %&gt;</span>
+        </div>
+      </div>
+      <div class="card green">
+        <h4>forEach — Massiv aylantirish</h4>
+        <p>JSON massividagi har bir element uchun HTML yaratadi.</p>
+        <div class="code" style="margin-top:10px;font-size:12px">
+<span class="hl">&lt;% skills.forEach(s => { %&gt;</span>
+  &lt;div&gt;&lt;%= <span class="hl">s.name</span> %&gt;&lt;/div&gt;
+<span class="hl">&lt;% }) %&gt;</span>
+        </div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:20px">
+      <strong>Misol:</strong> user.json dagi <code>"languages": [{"name":"Uzbek","percent":100}]</code> → EJS forEach bilan har biri uchun progress bar chiqaradi → brauzerda <strong>Uzbek — 100%</strong> ko'rinadi.
+    </div>
+    <div class="code" style="margin-top:16px">
+<span class="cm">// user.json</span>
+{ <span class="str">"name"</span>: <span class="str">"Matthew"</span>, <span class="str">"skills"</span>: [{ <span class="str">"name"</span>: <span class="str">"Html"</span>, <span class="str">"percent"</span>: <span class="yr">90</span> }] }
+
+<span class="cm">// server.js</span>
+res.<span class="fn">render</span>(<span class="str">'author'</span>, { <span class="hl">user: user</span> });   <span class="cm">← user ni EJS ga yuboradi</span>
+
+<span class="cm">// author.ejs</span>
+&lt;%= <span class="hl">user.name</span> %&gt;   <span class="cm">→ "Matthew" bo'lib chiqadi</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 7 — CSS FLEXBOX
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="slide-num">07</span>
+    <span class="slide-title">main.css — CSS Flexbox bilan layout</span>
+  </div>
+  <div class="slide-body">
+    <div class="cols2">
+      <div>
+        <div class="code" style="font-size:12px">
+<span class="cm">/* Tashqi fon — markazga joylashtirish */</span>
+.<span class="fn">frame</span> {
+  <span class="kw">display</span>: flex;
+  <span class="kw">justify-content</span>: center; <span class="cm">/* gorizontal markaz */</span>
+  <span class="kw">background-color</span>: <span class="str">#E8E8E8</span>;
+}
+
+<span class="cm">/* Asosiy konteyner */</span>
+.<span class="fn">main_frame</span> {
+  <span class="kw">display</span>: flex;
+  <span class="kw">flex-direction</span>: row;   <span class="cm">/* gorizontal */</span>
+  <span class="kw">width</span>: <span class="yr">1200px</span>;
+}
+
+<span class="cm">/* Chap panel — fixed kenglik */</span>
+.<span class="fn">left_frame</span> {
+  <span class="kw">width</span>: <span class="yr">305px</span>;
+  <span class="kw">flex-shrink</span>: <span class="yr">0</span>;   <span class="cm">/* kichraymaydi */</span>
+  <span class="kw">flex-direction</span>: column; <span class="cm">/* vertikal */</span>
+}
+
+<span class="cm">/* O'rta qism — qolgan joyni oladi */</span>
+.<span class="fn">mid_frame</span> {
+  <span class="kw">flex</span>: <span class="yr">1</span>;   <span class="cm">/* bo'sh joyni to'ldiradi */</span>
+}
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:12px">
+          <h4>display: flex nima?</h4>
+          <p>Farzandlarni bir qatorda (row) yoki ustun (column) qilib joylashtiradi. Zamonaviy layout usuli.</p>
+        </div>
+        <div class="card blue" style="margin-bottom:12px">
+          <h4>flex: 1 nima?</h4>
+          <p><code>mid_frame</code> — <code>left_frame</code> (305px) va <code>right_frame</code> (108px) dan keyin qolgan barcha bo'sh joyni egallaydi.</p>
+        </div>
+        <div class="card green">
+          <h4>flex-shrink: 0 nima?</h4>
+          <p>Ekran kichrayganda ham <code>left_frame</code> ning kengligi 305px dan kichraymaydi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 8 — CSS RANGLAR VA KOMPONENTLAR
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="slide-num">08</span>
+    <span class="slide-title">main.css — Asosiy ranglar va komponentlar</span>
+  </div>
+  <div class="slide-body">
+    <div class="palette">
+      <div class="swatch" style="background:#FFB400">#FFB400<br><small>Asosiy rang — sariq</small></div>
+      <div class="swatch" style="background:#2B2B2B">#2B2B2B<br><small>Asosiy matn</small></div>
+      <div class="swatch" style="background:#888888">#888888<br><small>Ikkinchi matn</small></div>
+      <div class="swatch" style="background:#27AE60">#27AE60<br><small>Available — yashil</small></div>
+      <div class="swatch" style="background:#E8E8E8;color:#888">#E8E8E8<br><small>Fon kulrang</small></div>
+    </div>
+    <div class="cols3">
+      <div class="card">
+        <h4>.icon — Ijtimoiy ikonka</h4>
+        <div class="code" style="font-size:11px;margin-top:8px">
+.<span class="fn">icon</span> {
+  <span class="kw">width</span>: <span class="yr">28px</span>;
+  <span class="kw">border-radius</span>: <span class="yr">50%</span>;
+  <span class="kw">background</span>: <span class="str">#FFB400</span>;
+}
+        </div>
+        <p style="font-size:12px;margin-top:8px">Doira shakl, sariq fon, qora ikonka.</p>
+      </div>
+      <div class="card blue">
+        <h4>.progress-fill — Progress bar</h4>
+        <div class="code" style="font-size:11px;margin-top:8px">
+.<span class="fn">progress-fill</span> {
+  <span class="kw">background</span>: <span class="str">#FFB400</span>;
+  <span class="kw">height</span>: <span class="yr">4px</span>;
+  <span class="kw">width</span>: <span class="hl">90%</span>; <span class="cm">← EJS</span>
+}
+        </div>
+        <div class="prog-demo">
+          <div class="prog-row"><span>Html</span><span>90%</span></div>
+          <div class="prog-bg"><div class="prog-fill" style="width:90%"></div></div>
+        </div>
+      </div>
+      <div class="card green">
+        <h4>.services-grid — CSS Grid</h4>
+        <div class="code" style="font-size:11px;margin-top:8px">
+.<span class="fn">services-grid</span> {
+  <span class="kw">display</span>: grid;
+  <span class="kw">grid-template-columns</span>:
+    <span class="str">repeat(3, 1fr)</span>;
+  <span class="kw">gap</span>: <span class="yr">20px</span>;
+}
+        </div>
+        <p style="font-size:12px;margin-top:8px">6 ta kartochkani 3×2 qilib joylashtiradi.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 9 — HERO SECTION
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="slide-num">09</span>
+    <span class="slide-title">Hero Section — O'rta qismning yuqori bloki</span>
+  </div>
+  <div class="slide-body">
+    <div class="cols2">
+      <div>
+        <div class="code" style="font-size:12px">
+.<span class="fn">hero</span> {
+  <span class="kw">position</span>: relative;  <span class="cm">← dekorativ shakllar uchun</span>
+  <span class="kw">display</span>: flex;
+  <span class="kw">flex-direction</span>: row; <span class="cm">← matn | rasm</span>
+  <span class="kw">padding</span>: <span class="yr">50px 60px</span>;
+  <span class="kw">background</span>: <span class="str">#ffffff</span>;
+  <span class="kw">border-radius</span>: <span class="yr">6px</span>;
+}
+
+.<span class="fn">hire-btn</span> {
+  <span class="kw">background-color</span>: <span class="str">#FFB400</span>;
+  <span class="kw">color</span>: <span class="str">#ffffff</span>;
+  <span class="kw">padding</span>: <span class="yr">13px 28px</span>;
+  <span class="kw">border-radius</span>: <span class="yr">4px</span>;
+  <span class="kw">font-weight</span>: <span class="yr">700</span>;
+}
+
+<span class="cm">/* Dekorativ shakllar */</span>
+.<span class="fn">deco</span> { <span class="kw">position</span>: absolute; }
+.<span class="fn">deco-diamond</span> {
+  <span class="kw">border</span>: <span class="yr">2px</span> solid <span class="str">#3498DB</span>;
+  <span class="kw">transform</span>: <span class="fn">rotate</span>(<span class="yr">45deg</span>);
+}
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:12px">
+          <h4>position: relative nima?</h4>
+          <p>Dekorativ shakllar (<code>.deco</code>) <code>position: absolute</code> bilan hero ichida aniq joyga qo'yiladi. Buning uchun parent <code>relative</code> bo'lishi shart.</p>
+        </div>
+        <div class="card blue" style="margin-bottom:12px">
+          <h4>Dekorativ shakllar</h4>
+          <p>Oddiy <code>&lt;span&gt;</code> tegi CSS bilan to'rt burchak, doira yoki olmosga aylantiriladi. <code>transform: rotate(45deg)</code> olmosni yasaydi.</p>
+        </div>
+        <div class="card green">
+          <h4>border-radius: 6px</h4>
+          <p>Hero va services kartochkalarining burchakları biroz yumaloqlashadi — zamonaviy ko'rinish uchun.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 10 — XULOSA
+════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="slide-num">10</span>
+    <span class="slide-title">Xulosa — Nima o'rgandik?</span>
+  </div>
+  <div class="slide-body">
+    <div class="cols2">
+      <div>
+        <div class="card" style="margin-bottom:14px">
+          <h4>✅ Node.js + Express</h4>
+          <p>Web server yaratish, portda tinglash, route'lar bilan turli sahifalarga yo'naltirish.</p>
+        </div>
+        <div class="card blue" style="margin-bottom:14px">
+          <h4>✅ EJS Shablon dvigatel</h4>
+          <p>HTML ichiga JavaScript yozish, JSON dan kelgan ma'lumotlarni dinamik ko'rsatish, forEach bilan massivlarni aylantirish.</p>
+        </div>
+        <div class="card green" style="margin-bottom:14px">
+          <h4>✅ CSS Flexbox & Grid</h4>
+          <p>3 ustunli layout (left · mid · right), hero ichida 2 ustun, services bo'limida 3×2 grid.</p>
+        </div>
+        <div class="card red">
+          <h4>✅ Git & GitHub</h4>
+          <p>Loyihani versiyalash, commit qilish, GitHub ga push qilish va professsor ko'ra oladigan qilish.</p>
+        </div>
+      </div>
+      <div>
+        <div class="diagram" style="flex-direction:column;gap:12px;align-items:flex-start">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="box" style="min-width:110px;font-size:13px">user.json</div>
+            <span style="color:#888;font-size:13px">Ma'lumotlar bazasi</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="box gray" style="min-width:110px;font-size:13px">server.js</div>
+            <span style="color:#888;font-size:13px">O'qib, EJS ga yuboradi</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="box dark" style="min-width:110px;font-size:13px">author.ejs</div>
+            <span style="color:#888;font-size:13px">HTML shablon + EJS</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="box blue" style="min-width:110px;font-size:13px">main.css</div>
+            <span style="color:#888;font-size:13px">Barcha stillar</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="box green" style="min-width:110px;font-size:13px">Brauzer</div>
+            <span style="color:#888;font-size:13px">Tayyor portfolio sahifa</span>
+          </div>
+        </div>
+        <div class="note" style="margin-top:20px">
+          <strong>localhost:3000/author</strong> — barchasi birlashib shu sahifani hosil qiladi.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

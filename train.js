@@ -1,44 +1,58 @@
-//CALLBACK FUNKSIYALAR///////////////////////
+//A-TASK////////////////////
 
-console.log('Jack Ma maslahatlari');
-const list = [
-  "yaxshi talaba bo'ling ", //0-20
-  "to'g'ri boshliq tanlang va ko'proq hato qiling ", // 20-30
-  'ozingiz ushun ishlashni boshlang ', // 30-40
-  "siz kuchli bo'lgan narsalarni qiling ", //40-50
-  'yoshlarga sarmoya kiritish ', //50-60
-  'endi foydasi yoq', //60
-];
-
-function maslahatBering(a, callback) {
-  if (typeof a !== 'number') callback('insert a number', null);
-  else if (a <= 20) callback(null, list[0]);
-  else if (a > 20 && a <= 30) callback(null, list[1]);
-  else if (a > 30 && a <= 40) callback(null, list[2]);
-  else if (a > 40 && a <= 50) callback(null, list[3]);
-  else if (a > 50 && a <= 60) callback(null, list[4]);
-  else {
-    setInterval(function () {
-      callback(null, list[5]);
-    }, 5000);
+function countLetter(letter, soz) {
+  let count = 0;
+  for (let i = 0; i < soz.length; i++) {
+    if (soz[i] === letter) {
+      count++;
+    }
   }
+  return count;
 }
 
-//// callback function birinchi qismi ERROR  ikkinchi qisi esa DATA ni qaytaradi
+console.log(countLetter('e', 'engineer'));
 
-console.log('passed here 0');
-maslahatBering(70, (err, data) => {
-  if (err) console.log('ERROR', err);
-  else {
-    console.log('Javob:', data);
-  }
-});
+// //CALLBACK FUNKSIYALAR///////////////////////
 
-console.log('passed here 1');
+// console.log('Jack Ma maslahatlari');
+// const list = [
+//   "yaxshi talaba bo'ling ", //0-20
+//   "to'g'ri boshliq tanlang va ko'proq hato qiling ", // 20-30
+//   'ozingiz ushun ishlashni boshlang ', // 30-40
+//   "siz kuchli bo'lgan narsalarni qiling ", //40-50
+//   'yoshlarga sarmoya kiritish ', //50-60
+//   'endi foydasi yoq', //60
+// ];
 
-// ********* Assynchronous Functions *********
+// // function maslahatBering(a, callback) {
+// //   if (typeof a !== 'number') callback('insert a number', null);
+// //   else if (a <= 20) callback(null, list[0]);
+// //   else if (a > 20 && a <= 30) callback(null, list[1]);
+// //   else if (a > 30 && a <= 40) callback(null, list[2]);
+// //   else if (a > 40 && a <= 50) callback(null, list[3]);
+// //   else if (a > 50 && a <= 60) callback(null, list[4]);
+// //   else {
+// //     setInterval(function () {
+// //       callback(null, list[5]);
+// //     }, 5000);
+// //   }
+// // }
 
-///// Definition Qismi /////
+// //// callback function birinchi qismi ERROR  ikkinchi qisi esa DATA ni qaytaradi
+
+// // console.log('passed here 0');
+// // maslahatBering(70, (err, data) => {
+// //   if (err) console.log('ERROR', err);
+// //   else {
+// //     console.log('Javob:', data);
+// //   }
+// // });
+
+// console.log('passed here 1');
+
+// // ********* Assynchronous Functions *********
+
+// ///// Definition Qismi /////
 
 // async function maslahatBering(a) {
 //   if (typeof a !== 'number') throw new Error('insert a number');
@@ -56,34 +70,27 @@ console.log('passed here 1');
 //   }
 // }
 
-///// Call qismi /////
-// call qismida  then va catch metodidan foydalandik
+// ///// Call qismi /////
+// // call qismida  then va catch metodidan foydalandik
 
-// console.log('passed here 0');
-// maslahatBering(25)
-//   .then((data) => {
-//     console.log('Javob:', data);
-//   })
-//   .catch((err) => {
-//     console.log('ERROR', err);
-//   });
+// // console.log('passed here 0');
+// // maslahatBering(25)
+// //   .then((data) => {
+// //     console.log('Javob:', data);
+// //   })
+// //   .catch((err) => {
+// //     console.log('ERROR', err);
+// //   });
 
 // console.log('passed here 1');
 
-//async va await metodidan foydalangan holda chaqirish
+// // async va await metodidan foydalangan holda chaqirish
 // async function run() {
 //   let Javob = await maslahatBering(65);
 //   console.log(Javob);
 //   Javob = await maslahatBering(40);
 //   console.log(Javob);
 //   Javob = await maslahatBering(50);
-//   console.log(Javob);
-// }
-
-// run();
-
-// async function run() {
-//   let Javob = await maslahatBering(25);
 //   console.log(Javob);
 // }
 

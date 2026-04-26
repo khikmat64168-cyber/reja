@@ -1,4 +1,4 @@
-//A-TASK////////////////////
+//////////////////A-TASK////////////////////
 
 function countLetter(letter, soz) {
   let count = 0;
@@ -50,7 +50,7 @@ console.log(countLetter('e', 'engineer'));
 
 // console.log('passed here 1');
 
-// // ********* Assynchronous Functions *********
+// // *********ASYNCHRONOUS Functions  *********
 
 // ///// Definition Qismi /////
 

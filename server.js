@@ -7,7 +7,7 @@ const fs = require('fs');
 let user;
 fs.readFile('database/user.json', 'utf-8', (err, data) => {
   if (err) {
-    console.log("ERROR:", err);
+    console.log('ERROR:', err);
   } else {
     user = JSON.parse(data);
   }
@@ -30,7 +30,7 @@ app.post('/create-item', (req, res) => {
   res.json({ test: 'success' });
 });
 
-app.get('/author' , (req, res) => {
+app.get('/author', (req, res) => {
   res.render('author', { user: user });
 });
 
@@ -44,11 +44,14 @@ app.get('/author' , (req, res) => {
 //   res.end('<h1>Siz sovgalar bolimidasiz</h1>');
 // });
 app.get('/', function (req, res) {
-  res.render('harid', { reja: 'Bugungi rejam' });
+  res.render('reja', { reja: 'Bugungi rejam' });
 });
 
 const server = http.createServer(app);
 let port = 3000;
 server.listen(port, () => {
-  console.log(`The server is runing successfully on port  ${port}`);
+  console.log(
+    `The server is runing successfully on port  ${port}`,
+    `http://localhost:${port}`,
+  );
 });

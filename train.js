@@ -1,16 +1,28 @@
-//////////////////A-TASK////////////////////
+/////////////// B- TASK/////////
 
-function countLetter(letter, soz) {
+function raqamlaniHisobla(str) {
   let count = 0;
-  for (let i = 0; i < soz.length; i++) {
-    if (soz[i] === letter) {
-      count++;
-    }
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] >= '0' && str[i] <= '9') count++;
   }
   return count;
 }
 
-console.log(countLetter('e', 'engineer'));
+console.log(raqamlaniHisobla('ad2a54y79wet0sfgb9'));
+
+//////////////////A-TASK////////////////////
+
+// function countLetter(letter, soz) {
+//   let count = 0;
+//   for (let i = 0; i < soz.length; i++) {
+//     if (soz[i] === letter) {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+
+// console.log(countLetter('e', 'engineer'));
 
 // //CALLBACK FUNKSIYALAR///////////////////////
 

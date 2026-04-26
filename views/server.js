@@ -1,13 +1,12 @@
 const http = require('http');
-const { MongoClient } = require('mongodb');
+const mongodb = require('mongodb');
+const { connect } = require('http2');
 
 let db;
-module.exports.db = () => db;
-
 const connectionString =
   'mongodb+srv://Matthew01:Matthew2024@cluster0.ydwixqq.mongodb.net/Reja';
 
-MongoClient.connect(
+mongodb.connect(
   connectionString,
   { useNewUrlParser: true, useUnifiedTopology: true },
 
@@ -15,10 +14,9 @@ MongoClient.connect(
   (err, client) => {
     if (err) console.log('ERROR on connection MongoDB');
     else {
-      db = client.db('Reja');
       const app = require('./app');
       console.log('MongoDB connection succeed');
-      console.log(client);
+      module.exports = client;
 
       const server = http.createServer(app);
       let port = 3000;

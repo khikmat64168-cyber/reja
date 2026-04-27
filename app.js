@@ -28,8 +28,20 @@ app.set('view engine', 'ejs'); //ejs formatidagi fayllarni ochish uchun views fo
 //4-BOSQICH.ROOTING codelari
 
 app.post('/create-item', (req, res) => {
+  console.log('user entered /create-item');
+
   console.log(req.body);
-  res.json({ test: 'success' });
+  // res.end('success' );
+  const new_reja = req.body.item;
+  db.collection('plans').insertOne({ reja: new_reja }, (err, data) => {
+    if (err) {
+      console.log(err);
+      res.end('something went wrong');
+    } else {
+      console.log(data);
+      res.redirect('/');
+    }
+  });
 });
 
 app.get('/author', (req, res) => {
@@ -46,7 +58,18 @@ app.get('/author', (req, res) => {
 //   res.end('<h1>Siz sovgalar bolimidasiz</h1>');
 // });
 app.get('/', function (req, res) {
-  res.render('reja', { reja: 'Bugungi rejam' });
+  console.log('user entered /');
+  db.collection('plans')
+    .find()
+    .toArray((err, data) => {
+      if (err) {
+        console.log(err);
+        res.end('Something went wrong');
+      } else {
+        console.log(data);
+        res.render('reja', { items: data });
+      }
+    });
 });
 
 module.exports = app;

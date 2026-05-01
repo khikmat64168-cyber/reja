@@ -8,7 +8,7 @@ function itemTemplate(item) {
                     data-id="${item._id}" class="edit-me btn btn-secondary btn-sm mr-1">
                   Ozgartirish
                 </button>
-                <button data="${item._id}" 
+                <button data-id="${item._id}"
                     class="delete-me btn btn-danger btn-sm">O'chirish</button>
               </div>
             </li>`;
@@ -32,4 +32,25 @@ document.getElementById('create-form').addEventListener('submit', function (e) {
     .catch((err) => {
       console.log('Iltimos qaytatdan harakat qiling ');
     });
+});
+
+document.addEventListener('click', function (e) {
+  //delete oper
+  console.log(e.target);
+  if (e.target.classList.contains('delete-me')) {
+    if (confirm('Aniq ochirmoqchimisiz?')) {
+      axios
+        .post('/delete-item', { id: e.target.getAttribute('data-id') })
+
+        .then((response) => {
+          e.target.closest('li').remove();
+        })
+        .catch((err) => {});
+    }
+  }
+
+  //edit oper
+  if (e.target.classList.contains('edit-me')) {
+    alert('Siz edit tugmasini bosdingiz');
+  }
 });

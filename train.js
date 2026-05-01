@@ -1,30 +1,107 @@
-/////////////// B- TASK/////////
+// /////////////// B- TASK/////////
 
-function raqamlaniHisobla(str) {
-  let count = 0;
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] >= '0' && str[i] <= '9') count++;
-  }
-  return count;
+function nonvoyxona(callback) {
+  setTimeout(() => {
+    const nonBor = Math.random() > 0.5;
+    if (nonBor) {
+      callback(null, 'Issiq non');
+    } else {
+      callback('Non qolmabdi!', null);
+    }
+  }, 2000);
 }
 
-console.log(raqamlaniHisobla('ad2a54y79wet0sfgb9'));
+nonvoyxona((err, data) => {
+  if (err) {
+    console.log('Xato: ' + err);
+    return;
+  }
+  console.log('Natija: ' + data);
+});
 
-//////////////////A-TASK////////////////////
-
-// function countLetter(letter, soz) {
+// function raqamlaniHisobla(str) {
 //   let count = 0;
-//   for (let i = 0; i < soz.length; i++) {
-//     if (soz[i] === letter) {
-//       count++;
-//     }
+//   for (let i = 0; i < str.length; i++) {
+//     if (str[i] >= '0' && str[i] <= '9') count++;
 //   }
 //   return count;
 // }
 
-// console.log(countLetter('e', 'engineer'));
+// console.log(raqamlaniHisobla('ad2a54y79wet0sfgb9'));
 
-// //CALLBACK FUNKSIYALAR///////////////////////
+// //////////////////A-TASK////////////////////
+
+// // function countLetter(letter, soz) {
+// //   let count = 0;
+// //   for (let i = 0; i < soz.length; i++) {
+// //     if (soz[i] === letter) {
+// //       count++;
+// //     }
+// //   }
+// //   return count;
+// // }
+
+// // console.log(countLetter('e', 'engineer'));
+
+// // //CALLBACK FUNKSIYALAR///////////////////////
+
+// // // function maslahatBering(a, callback) {
+// // //   if (typeof a !== 'number') callback('insert a number', null);
+// // //   else if (a <= 20) callback(null, list[0]);
+// // //   else if (a > 20 && a <= 30) callback(null, list[1]);
+// // //   else if (a > 30 && a <= 40) callback(null, list[2]);
+// // //   else if (a > 40 && a <= 50) callback(null, list[3]);
+// // //   else if (a > 50 && a <= 60) callback(null, list[4]);
+// // //   else {
+// // //     setInterval(function () {
+// // //       callback(null, list[5]);
+// // //     }, 5000);
+// // //   }
+// // // }
+
+// // //// callback function birinchi qismi ERROR  ikkinchi qisi esa DATA ni qaytaradi
+
+// // // console.log('passed here 0');
+// // // maslahatBering(70, (err, data) => {
+// // //   if (err) console.log('ERROR', err);
+// // //   else {
+// // //     console.log('Javob:', data);
+// // //   }
+// // // });
+
+// // console.log('passed here 1');
+
+// // // *********ASYNCHRONOUS Functions  *********
+
+// // ///// Definition Qismi /////
+
+// // async function maslahatBering(a) {
+// //   if (typeof a !== 'number') throw new Error('insert a number');
+// //   else if (a <= 20) return list[0];
+// //   else if (a > 20 && a <= 30) return list[1];
+// //   else if (a > 30 && a <= 40) return list[2];
+// //   else if (a > 40 && a <= 50) return list[3];
+// //   else if (a > 50 && a <= 60) return list[4];
+// //   else {
+// //     return new Promise((resolve, reject) => {
+// //       setInterval(() => {
+// //         resolve(list[5]);
+// //       }, 5000);
+// //     });
+// //   }
+// // }
+
+// // ///// Call qismi /////
+// // // call qismida  then va catch metodidan foydalandik
+
+// // // console.log('passed here 0');
+// // // maslahatBering(25)
+// // //   .then((data) => {
+// // //     console.log('Javob:', data);
+// // //   })
+// // //   .catch((err) => {
+// // //     console.log('ERROR', err);
+// // //   });
 
 // console.log('Jack Ma maslahatlari');
 // const list = [
@@ -35,64 +112,6 @@ console.log(raqamlaniHisobla('ad2a54y79wet0sfgb9'));
 //   'yoshlarga sarmoya kiritish ', //50-60
 //   'endi foydasi yoq', //60
 // ];
-
-// // function maslahatBering(a, callback) {
-// //   if (typeof a !== 'number') callback('insert a number', null);
-// //   else if (a <= 20) callback(null, list[0]);
-// //   else if (a > 20 && a <= 30) callback(null, list[1]);
-// //   else if (a > 30 && a <= 40) callback(null, list[2]);
-// //   else if (a > 40 && a <= 50) callback(null, list[3]);
-// //   else if (a > 50 && a <= 60) callback(null, list[4]);
-// //   else {
-// //     setInterval(function () {
-// //       callback(null, list[5]);
-// //     }, 5000);
-// //   }
-// // }
-
-// //// callback function birinchi qismi ERROR  ikkinchi qisi esa DATA ni qaytaradi
-
-// // console.log('passed here 0');
-// // maslahatBering(70, (err, data) => {
-// //   if (err) console.log('ERROR', err);
-// //   else {
-// //     console.log('Javob:', data);
-// //   }
-// // });
-
-// console.log('passed here 1');
-
-// // *********ASYNCHRONOUS Functions  *********
-
-// ///// Definition Qismi /////
-
-// async function maslahatBering(a) {
-//   if (typeof a !== 'number') throw new Error('insert a number');
-//   else if (a <= 20) return list[0];
-//   else if (a > 20 && a <= 30) return list[1];
-//   else if (a > 30 && a <= 40) return list[2];
-//   else if (a > 40 && a <= 50) return list[3];
-//   else if (a > 50 && a <= 60) return list[4];
-//   else {
-//     return new Promise((resolve, reject) => {
-//       setInterval(() => {
-//         resolve(list[5]);
-//       }, 5000);
-//     });
-//   }
-// }
-
-// ///// Call qismi /////
-// // call qismida  then va catch metodidan foydalandik
-
-// // console.log('passed here 0');
-// // maslahatBering(25)
-// //   .then((data) => {
-// //     console.log('Javob:', data);
-// //   })
-// //   .catch((err) => {
-// //     console.log('ERROR', err);
-// //   });
 
 // console.log('passed here 1');
 

@@ -28,38 +28,36 @@ app.set('view engine', 'ejs'); //ejs formatidagi fayllarni ochish uchun views fo
 
 //4-BOSQICH.ROOTING codelari
 
+//++++++++++++ CREATE STEP 3: axios dan kelgan { reja: "..." } qabul qilinadi ++++++++++++//
 app.post('/create-item', (req, res) => {
   console.log('user entered /create-item');
   const new_reja = req.body.reja;
+  //++++++++++++ CREATE STEP 4: MongoDB ga yangi hujjat yoziladi ++++++++++++//
   db.collection('plans').insertOne({ reja: new_reja }, (err, data) => {
     console.log(data.ops);
+    //++++++++++++ CREATE STEP 5: Kiritilgan hujjat browser.js ga JSON qaytariladi — keyingi step browser.js da ++++++++++++//
     res.json(data.ops[0]);
   });
 });
 
+//++++++++++++ DELETE STEP 3: axios dan kelgan { id: "..." } qabul qilinadi ++++++++++++//
 app.post('/delete-item', (req, res) => {
   const id = req.body.id;
+  //++++++++++++ DELETE STEP 4: string → ObjectID ga o'giriladi, MongoDB dan hujjat topib o'chiriladi ++++++++++++//
   db.collection('plans').deleteOne({ _id: new mongodb.ObjectID(id) }, function (err, data) {
+    //++++++++++++ DELETE STEP 5: Muvaffaqiyat xabari browser.js ga qaytariladi — keyingi step browser.js da ++++++++++++//
     res.json({state: 'success'});
-  } );
-  
+  });
 });
 
 app.get('/author', (req, res) => {
   res.render('author', { user: user });
 });
 
-//  rooterlarga mo'ljallangan
-
-// app.get('/hello', function (req, res) {
-//   res.end('<h1 style="background-color: red;">Hello world ny MATTTHEW </h1>');
-// });
-
-// app.get('/gift', function (req, res) {
-//   res.end('<h1>Siz sovgalar bolimidasiz</h1>');
-// });
+//++++++++++++ READ STEP 3: Foydalanuvchi localhost:3000 ga kiradi — GET / so'rovi keladi ++++++++++++//
 app.get('/', function (req, res) {
   console.log('user entered /');
+  //++++++++++++ READ STEP 4: MongoDB dan barcha rejalar olinadi ++++++++++++//
   db.collection('plans')
     .find()
     .toArray((err, data) => {
@@ -68,6 +66,7 @@ app.get('/', function (req, res) {
         res.end('Something went wrong');
       } else {
         console.log(data);
+        //++++++++++++ READ STEP 5: Data reja.ejs ga yuboriladi — keyingi step reja.ejs da ++++++++++++//
         res.render('reja', { items: data });
       }
     });

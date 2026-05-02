@@ -1,23 +1,63 @@
-// /////////////// B- TASK/////////
+////////////// C-task//////////
 
-function nonvoyxona(callback) {
-  setTimeout(() => {
-    const nonBor = Math.random() > 0.5;
-    if (nonBor) {
-      callback(null, 'Issiq non');
-    } else {
-      callback('Non qolmabdi!', null);
-    }
-  }, 2000);
+class Shop {
+  constructor(non, lagmon, cola) {
+    this.non = non;
+    this.lagmon = lagmon;
+    this.cola = cola;
+  }
+
+  qoldiq() {
+    const hozir = new Date();
+    const soat = hozir.getHours();
+    const daqiqa = hozir.getMinutes();
+    console.log(
+      `Hozir ${soat}:${daqiqa}'da ${this.non}ta non, ${this.lagmon}ta lag'mon va ${this.cola}ta cola mavjud`,
+    );
+  }
+
+  sotish(mahsulot, miqdor) {
+    console.log(`  sotish metodi ishga tushdi`);
+    if (mahsulot === 'non') this.non -= miqdor;
+    else if (mahsulot === "lag'mon") this.lagmon -= miqdor;
+    else if (mahsulot === 'cola') this.cola -= miqdor;
+  }
+
+  qabul(mahsulot, miqdor) {
+    console.log(`qabul metodi ishga tushdi`);
+    if (mahsulot === 'non') this.non += miqdor;
+    else if (mahsulot === "lag'mon") this.lagmon += miqdor;
+    else if (mahsulot === 'cola') this.cola += miqdor;
+  }
 }
 
-nonvoyxona((err, data) => {
-  if (err) {
-    console.log('Xato: ' + err);
-    return;
-  }
-  console.log('Natija: ' + data);
-});
+const shop = new Shop(4, 5, 2);
+
+shop.qoldiq();
+shop.sotish('non', 3);
+shop.qabul('cola', 4);
+shop.qoldiq();
+
+// /////////////// B- TASK/////////
+
+// function nonvoyxona(callback) {
+//   setTimeout(() => {
+//     const nonBor = Math.random() > 0.5;
+//     if (nonBor) {
+//       callback(null, 'Issiq non');
+//     } else {
+//       callback('Non qolmabdi!', null);
+//     }
+//   }, 2000);
+// }
+
+// nonvoyxona((err, data) => {
+//   if (err) {
+//     console.log('Xato: ' + err);
+//     return;
+//   }
+//   console.log('Natija: ' + data);
+// });
 
 // function raqamlaniHisobla(str) {
 //   let count = 0;

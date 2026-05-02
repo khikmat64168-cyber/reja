@@ -7,6 +7,7 @@ module.exports.db = () => db;
 const connectionString =
   'mongodb+srv://Matthew01:Matthew2024@cluster0.ydwixqq.mongodb.net/Reja';
 
+//++++++++++++ READ STEP 1: Server ishga tushadi — MongoDB Atlas ga ulaniladi ++++++++++++//
 MongoClient.connect(
   connectionString,
   { useNewUrlParser: true, useUnifiedTopology: true },
@@ -16,6 +17,7 @@ MongoClient.connect(
     if (err) console.log('ERROR on connection MongoDB');
     else {
       db = client.db('Reja');
+      //++++++++++++ READ STEP 2: Ulanish muvaffaqiyatli — app.js yuklanadi, server 3000 portda tinglaydi ++++++++++++//
       const app = require('./app');
       console.log('MongoDB connection succeed');
       console.log(client);

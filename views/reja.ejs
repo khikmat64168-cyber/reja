@@ -34,14 +34,13 @@
         </form>
         </div>
 
-       
-
+        <!-- READ STEP 6: app.js dan kelgan items array → har bir reja uchun <li> yasaladi -->
         <ul id="item-list" class="list-group pb-5">
           <% items.map(function(item) { %>
             <li class="list-group-item list-group-item-info d-flex align-items-center justify-content-between">
               <span class="item-text"><%= item.reja %></span>
               <div>
-                <button 
+                <button
                     data-id="<%=item._id%>" class="edit-me btn btn-secondary btn-sm mr-1">
                   Ozgartirish
                 </button>
@@ -58,9 +57,8 @@
       </div>
     </div>
 
-
+    <!-- READ STEP 7: Tayyor HTML brauzerga yuboriladi, browser.js yuklanadi -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
     <script src="/browser.js"> </script>
 
   </body>

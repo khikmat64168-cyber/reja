@@ -1,42 +1,51 @@
-////////////// C-task//////////
+// ////////////// D-task//////////
 
-class Shop {
-  constructor(non, lagmon, cola) {
-    this.non = non;
-    this.lagmon = lagmon;
-    this.cola = cola;
-  }
-
-  qoldiq() {
-    const hozir = new Date();
-    const soat = hozir.getHours();
-    const daqiqa = hozir.getMinutes();
-    console.log(
-      `Hozir ${soat}:${daqiqa}'da ${this.non}ta non, ${this.lagmon}ta lag'mon va ${this.cola}ta cola mavjud`,
-    );
-  }
-
-  sotish(mahsulot, miqdor) {
-    console.log(`  sotish metodi ishga tushdi`);
-    if (mahsulot === 'non') this.non -= miqdor;
-    else if (mahsulot === "lag'mon") this.lagmon -= miqdor;
-    else if (mahsulot === 'cola') this.cola -= miqdor;
-  }
-
-  qabul(mahsulot, miqdor) {
-    console.log(`qabul metodi ishga tushdi`);
-    if (mahsulot === 'non') this.non += miqdor;
-    else if (mahsulot === "lag'mon") this.lagmon += miqdor;
-    else if (mahsulot === 'cola') this.cola += miqdor;
-  }
+function checkContent(a, b) {
+  return a.split('').sort().join('') === b.split('').sort().join('');
 }
 
-const shop = new Shop(4, 5, 2);
+console.log(checkContent('mitgroup', 'gmtiprou'));
+console.log(checkContent('mitgroup', 'Mosbolmagan bla bla ')); // tekshirish uchun yozganman
 
-shop.qoldiq();
-shop.sotish('non', 3);
-shop.qabul('cola', 4);
-shop.qoldiq();
+// ////////////// C-task//////////
+
+// class Shop {
+//   constructor(non, lagmon, cola) {
+//     this.non = non;
+//     this.lagmon = lagmon;
+//     this.cola = cola;
+//   }
+
+//   qoldiq() {
+//     const hozir = new Date();
+//     const soat = hozir.getHours();
+//     const daqiqa = hozir.getMinutes();
+//     console.log(
+//       `Hozir ${soat}:${daqiqa}'da ${this.non}ta non, ${this.lagmon}ta lag'mon va ${this.cola}ta cola mavjud`,
+//     );
+//   }
+
+//   sotish(mahsulot, miqdor) {
+//     console.log(`  sotish metodi ishga tushdi`);
+//     if (mahsulot === 'non') this.non -= miqdor;
+//     else if (mahsulot === "lag'mon") this.lagmon -= miqdor;
+//     else if (mahsulot === 'cola') this.cola -= miqdor;
+//   }
+
+//   qabul(mahsulot, miqdor) {
+//     console.log(`qabul metodi ishga tushdi`);
+//     if (mahsulot === 'non') this.non += miqdor;
+//     else if (mahsulot === "lag'mon") this.lagmon += miqdor;
+//     else if (mahsulot === 'cola') this.cola += miqdor;
+//   }
+// }
+
+// const shop = new Shop(4, 5, 2);
+
+// shop.qoldiq();
+// shop.sotish('non', 3);
+// shop.qabul('cola', 4);
+// shop.qoldiq();
 
 // /////////////// B- TASK/////////
 

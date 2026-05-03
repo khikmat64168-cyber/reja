@@ -44,10 +44,13 @@ app.post('/create-item', (req, res) => {
 app.post('/delete-item', (req, res) => {
   const id = req.body.id;
   //++++++++++++ DELETE STEP 4: string → ObjectID ga o'giriladi, MongoDB dan hujjat topib o'chiriladi ++++++++++++//
-  db.collection('plans').deleteOne({ _id: new mongodb.ObjectID(id) }, function (err, data) {
-    //++++++++++++ DELETE STEP 5: Muvaffaqiyat xabari browser.js ga qaytariladi — keyingi step browser.js da ++++++++++++//
-    res.json({state: 'success'});
-  });
+  db.collection('plans').deleteOne(
+    { _id: new mongodb.ObjectID(id) },
+    function (err, data) {
+      //++++++++++++ DELETE STEP 5: Muvaffaqiyat xabari browser.js ga qaytariladi — keyingi step browser.js da ++++++++++++//
+      res.json({ state: 'success' });
+    },
+  );
 });
 
 app.get('/author', (req, res) => {
@@ -55,6 +58,26 @@ app.get('/author', (req, res) => {
 });
 
 //++++++++++++ READ STEP 3: Foydalanuvchi localhost:3000 ga kiradi — GET / so'rovi keladi ++++++++++++//
+app.post('/edit-item', (req, res) => {
+  const data = req.body;
+  console.log(data);
+  db.collection('plans').findOneAndUpdate(
+    { _id: new mongodb.ObjectID(data.id) },
+    { $set: { reja: data.new_input } },
+    function (err, data) {
+      res.json({ state: 'success' });
+    },
+  );
+});
+
+app.post('/delete-all', (req, res) => {
+  if (req.body.delete_all) {
+    db.collection('plans').deleteMany({}, function () {
+      res.json({ state: 'Hamma rejalar delete boldi ' });
+    });
+  }
+});
+
 app.get('/', function (req, res) {
   console.log('user entered /');
   //++++++++++++ READ STEP 4: MongoDB dan barcha rejalar olinadi ++++++++++++//

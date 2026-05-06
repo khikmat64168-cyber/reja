@@ -1,11 +1,19 @@
-// ////////////// D-task//////////
+/////////// E - TASK ////////////
 
-function checkContent(a, b) {
-  return a.split('').sort().join('') === b.split('').sort().join('');
+function getReverse(str) {
+  return str.split('').reverse().join('');
 }
 
-console.log(checkContent('mitgroup', 'gmtiprou'));
-console.log(checkContent('mitgroup', 'Mosbolmagan bla bla ')); // tekshirish uchun yozganman
+console.log(getReverse('Madaniyat'));
+
+// ////////////// D-task//////////
+
+// function checkContent(a, b) {
+//   return a.split('').sort().join('') === b.split('').sort().join('');
+// }
+
+// console.log(checkContent('mitgroup', 'gmtiprou'));
+// console.log(checkContent('mitgroup', 'Mosbolmagan bla bla ')); // tekshirish uchun yozganman
 
 // ////////////// C-task//////////
 

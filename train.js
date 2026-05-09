@@ -1,10 +1,26 @@
-/////////// E - TASK ////////////
+///////////// F - TASK ////////////
 
-function getReverse(str) {
-  return str.split('').reverse().join('');
+function findDoublers(soz) {
+  for (let i = 0; i < soz.length; i++) {
+    for (let a = i + 1; a < soz.length; a++) {
+      if (soz[i] === soz[a]) {
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
-console.log(getReverse('Madaniyat'));
+console.log(findDoublers('hello'));
+console.log(findDoublers('salom'));
+console.log(findDoublers('katta'));
+/////////// E - TASK ////////////
+
+// function getReverse(str) {
+//   return str.split('').reverse().join('');
+// }
+
+// console.log(getReverse('Madaniyat'));
 
 // ////////////// D-task//////////
 

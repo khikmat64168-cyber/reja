@@ -1,19 +1,26 @@
-///////////// F - TASK ////////////
-
-function findDoublers(soz) {
-  for (let i = 0; i < soz.length; i++) {
-    for (let a = i + 1; a < soz.length; a++) {
-      if (soz[i] === soz[a]) {
-        return true;
-      }
-    }
-  }
-  return false;
+///////  G - TASK ////////////
+function getHighestNumber(royxatt) {
+  return royxatt.indexOf(Math.max(...royxatt));
 }
 
-console.log(findDoublers('hello'));
-console.log(findDoublers('salom'));
-console.log(findDoublers('katta'));
+console.log(getHighestNumber([5, 21, 12, 8, 21]));
+
+///////////// F - TASK ////////////
+
+// function findDoublers(soz) {
+//   for (let i = 0; i < soz.length; i++) {
+//     for (let a = i + 1; a < soz.length; a++) {
+//       if (soz[i] === soz[a]) {
+//         return true;
+//       }
+//     }
+//   }
+//   return false;
+// }
+
+// console.log(findDoublers('hello'));
+// console.log(findDoublers('salom'));
+// console.log(findDoublers('katta'));
 /////////// E - TASK ////////////
 
 // function getReverse(str) {

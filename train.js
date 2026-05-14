@@ -1,9 +1,21 @@
-///////  G - TASK ////////////
-function getHighestNumber(royxatt) {
-  return royxatt.indexOf(Math.max(...royxatt));
+/////// H - Task //////
+
+function positiveSonla(massiv) {
+  return massiv
+
+    .filter((son) => son > 0)
+    .map((son) => String(son))
+    .join('');
 }
 
-console.log(getHighestNumber([5, 21, 12, 8, 21]));
+console.log(positiveSonla([1, -4, 2]));
+
+// ///////  G - TASK ////////////
+// function getHighestNumber(royxatt) {
+//   return royxatt.indexOf(Math.max(...royxatt));
+// }
+
+// console.log(getHighestNumber([5, 21, 12, 8, 21]));
 
 ///////////// F - TASK ////////////
 

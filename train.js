@@ -1,14 +1,30 @@
-/////// H - Task //////
+/////////// I -task/////////
+function majorityElement(arr) {
+  let hisoblimiz = {};
+  arr.forEach((son) => {
+    hisoblimiz[son] = (hisoblimiz[son] || 0) + 1;
+  });
 
-function positiveSonla(massiv) {
-  return massiv
-
-    .filter((son) => son > 0)
-    .map((son) => String(son))
-    .join('');
+  return Number(
+    Object.keys(hisoblimiz).reduce((a, b) =>
+      hisoblimiz[a] > hisoblimiz[b] ? a : b,
+    ),
+  );
 }
 
-console.log(positiveSonla([1, -4, 2]));
+console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4]));
+
+/////// H - Task //////
+
+// function positiveSonla(massiv) {
+//   return massiv
+
+//     .filter((son) => son > 0)
+//     .map((son) => String(son))
+//     .join('');
+// }
+
+// console.log(positiveSonla([1, -4, 2]));
 
 // ///////  G - TASK ////////////
 // function getHighestNumber(royxatt) {

@@ -1,18 +1,30 @@
-/////////// I -task/////////
-function majorityElement(arr) {
-  let hisoblimiz = {};
-  arr.forEach((son) => {
-    hisoblimiz[son] = (hisoblimiz[son] || 0) + 1;
-  });
+/////////// J -task/////////
 
-  return Number(
-    Object.keys(hisoblimiz).reduce((a, b) =>
-      hisoblimiz[a] > hisoblimiz[b] ? a : b,
-    ),
-  );
+function findLongestWordfunksiya(gapp) {
+  return gapp
+    .split(' ')
+    .reduce((engUzun, hozirgi) =>
+      hozirgi.length > engUzun.length ? hozirgi : engUzun,
+    );
 }
 
-console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4]));
+console.log(findLongestWordfunksiya('I came from Uzbekistan!'));
+
+/////////// I -task/////////
+// function majorityElement(arr) {
+//   let hisoblimiz = {};
+//   arr.forEach((son) => {
+//     hisoblimiz[son] = (hisoblimiz[son] || 0) + 1;
+//   });
+
+//   return Number(
+//     Object.keys(hisoblimiz).reduce((a, b) =>
+//       hisoblimiz[a] > hisoblimiz[b] ? a : b,
+//     ),
+//   );
+// }
+
+// console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4]));
 
 /////// H - Task //////
 
